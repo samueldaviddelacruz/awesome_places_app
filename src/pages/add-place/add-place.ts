@@ -1,12 +1,9 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, ModalController} from 'ionic-angular';
+import {NgForm} from "@angular/forms";
+import {SetLocation} from "../set-location/set-location";
 
-/**
- * Generated class for the AddPlace page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+
 @IonicPage()
 @Component({
   selector: 'page-add-place',
@@ -14,11 +11,20 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
 })
 export class AddPlace {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private modalCtrl: ModalController) {
+
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AddPlace');
+  onSubmit(form: NgForm) {
+    console.log(form.value)
+  }
+
+  onOpenMap() {
+
+    const modal = this.modalCtrl.create(SetLocation);
+
+    modal.present();
+
   }
 
 }
