@@ -3,14 +3,13 @@ import {ErrorHandler, NgModule} from '@angular/core';
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {StatusBar} from '@ionic-native/status-bar';
-
 import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
 import {Place} from "../pages/place/place";
 import {SetLocation} from "../pages/set-location/set-location";
 import {AddPlace} from "../pages/add-place/add-place";
 import {AgmCoreModule} from "angular2-google-maps/core";
-
+import {Geolocation} from '@ionic-native/geolocation';
 @NgModule({
   declarations: [
     MyApp,
@@ -37,6 +36,7 @@ import {AgmCoreModule} from "angular2-google-maps/core";
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
